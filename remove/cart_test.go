@@ -3,8 +3,8 @@ package remove
 import (
 	"testing"
 
-	"github.td.teradata.com/ck250037/stacki-lackey-2/add"
-	"github.td.teradata.com/ck250037/stacki-lackey-2/listcommand"
+	"github.td.teradata.com/ck250037/stackilackey/add"
+	"github.td.teradata.com/ck250037/stackilackey/listcommand"
 )
 
 func TestCart_Cart(t *testing.T) {

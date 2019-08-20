@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.td.teradata.com/ck250037/stacki-lackey-2/cmd"
+	"github.td.teradata.com/ck250037/stackilackey/cmd"
 )
 
 // Box represents a collection of pallets and carts in the Stacki Database

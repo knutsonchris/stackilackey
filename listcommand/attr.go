@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.td.teradata.com/ck250037/stacki-lackey-2/cmd"
+	"github.td.teradata.com/ck250037/stackilackey/cmd"
 )
 
 // valueStringOrStringArray will contain the value of an attr, sometimes it will be a string and other times a []string

@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.td.teradata.com/ck250037/stacki-lackey-2/cmd"
+	"github.td.teradata.com/ck250037/stackilackey/cmd"
 )
 
 // OS represents an OS defined in the Stacki database

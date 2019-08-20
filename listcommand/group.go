@@ -3,7 +3,7 @@ package listcommand
 import (
 	"encoding/json"
 
-	"github.td.teradata.com/ck250037/stacki-lackey-2/cmd"
+	"github.td.teradata.com/ck250037/stackilackey/cmd"
 )
 
 // Group represents a group and the hosts that belong to it in the Stacki database

@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"strconv"
 
-	"github.td.teradata.com/ck250037/stacki-lackey-2/cmd"
+	"github.td.teradata.com/ck250037/stackilackey/cmd"
 )
 
 // FlexString exists because the Stacki API will occasionally give us an int

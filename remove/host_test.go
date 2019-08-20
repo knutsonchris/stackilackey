@@ -4,8 +4,8 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	"github.td.teradata.com/ck250037/stacki-lackey-2/add"
-	"github.td.teradata.com/ck250037/stacki-lackey-2/listcommand"
+	"github.td.teradata.com/ck250037/stackilackey/add"
+	"github.td.teradata.com/ck250037/stackilackey/listcommand"
 )
 
 // TODO: host storage

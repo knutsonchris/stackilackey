@@ -3,7 +3,7 @@ package add
 import (
 	"fmt"
 
-	"github.td.teradata.com/ck250037/stacki-lackey-2/cmd"
+	"github.td.teradata.com/ck250037/stackilackey/cmd"
 )
 
 type box struct {
@@ -26,8 +26,8 @@ Parameters
 */
 func (box *box) Box(boxName, os string) ([]byte, error) {
 
-	argkeys := []string{"box"}
-	argvalues := []interface{}{box}
+	argkeys := []string{"os"}
+	argvalues := []interface{}{os}
 	baseCommand := fmt.Sprintf("add box %s", boxName)
 
 	c, err := cmd.ArgsExpander(baseCommand, argkeys, argvalues)

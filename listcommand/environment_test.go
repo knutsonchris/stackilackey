@@ -3,7 +3,7 @@ package listcommand
 import (
 	"testing"
 
-	"github.td.teradata.com/ck250037/stacki-lackey-2/add"
+	"github.td.teradata.com/ck250037/stackilackey/add"
 )
 
 func TestEnvironment_Environment(t *testing.T) {

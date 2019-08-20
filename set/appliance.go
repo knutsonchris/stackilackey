@@ -3,7 +3,7 @@ package set
 import (
 	"fmt"
 
-	"github.td.teradata.com/ck250037/stacki-lackey-2/cmd"
+	"github.td.teradata.com/ck250037/stackilackey/cmd"
 )
 
 type appliance struct {
