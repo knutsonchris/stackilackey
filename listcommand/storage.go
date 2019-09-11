@@ -46,7 +46,6 @@ func (controller *Controller) Controller() ([]Controller, error) {
 		err2 := json.Unmarshal(b, &nullOutput)
 		if err2 != nil {
 			// if we still can't recognize the output, return an error
-			//panic(string(b))
 			return nil, err
 		}
 		return controllers, err

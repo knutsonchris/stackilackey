@@ -271,8 +271,16 @@ Parameters
 	specified, it defaults to 'filter'
 */
 func (host *host) Firewall(hostName, action, chain, protocol, service, comment, flags, network, outputNetwork, rulename, table string) ([]byte, error) {
-	args := []interface{}{hostName, action, chain, protocol, service, comment, flags, network, outputNetwork, rulename, table}
-	c := fmt.Sprintf("add host firewall %s action='%s' chain='%s' protocol='%s' service='%s' comment='%s' flags='%s' network='%s' output-network='%s' rulename='%s' table=%s", args...)
+
+	argKeys := []string{"action", "chain", "protocol", "service", "comment", "flags", "network", "output-network", "rulename", "table"}
+	argValues := []interface{}{action, chain, protocol, service, comment, flags, network, outputNetwork, rulename, table}
+	baseCommand := fmt.Sprintf("add host firewall %s", hostName)
+
+	c, err := cmd.ArgsExpander(baseCommand, argKeys, argValues)
+	if err != nil {
+		return nil, err
+	}
+
 	return cmd.RunCommand(c)
 }
 

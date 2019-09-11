@@ -58,8 +58,15 @@ func (pallet *pallet) Pallet(palletName, dir, password, updatedb, username strin
 	} else {
 		cleanstr = "false"
 	}
-	args := []interface{}{palletName, cleanstr, dir, password, updatedb, username}
-	c := fmt.Sprintf("add pallet %s clean='%s' dir='%s' password='%s' updatedb='%s' username='%s'", args...)
+
+	argKeys := []string{"clean", "dir", "password", "updatedb", "username"}
+	argValues := []interface{}{cleanstr, dir, password, updatedb, username}
+	baseCommand := fmt.Sprintf("add pallet %s", palletName)
+	c, err := cmd.ArgsExpander(baseCommand, argKeys, argValues)
+	if err != nil {
+		return nil, err
+	}
+
 	return cmd.RunCommand(c)
 }
 

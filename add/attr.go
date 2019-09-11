@@ -1,8 +1,6 @@
 package add
 
 import (
-	"fmt"
-
 	"github.td.teradata.com/ck250037/stackilackey/cmd"
 )
 
@@ -33,7 +31,14 @@ func (attr *attr) Attr(attrName, value string, shadow bool) ([]byte, error) {
 	} else {
 		shadowstr = "false"
 	}
-	args := []interface{}{attrName, value, shadowstr}
-	c := fmt.Sprintf("add attr attr='%s' value='%s' shadow='%s'", args...)
+
+	argKeys := []string{"attr", "value", "shadow"}
+	argValues := []interface{}{attrName, value, shadowstr}
+	baseCommand := "add attr"
+	c, err := cmd.ArgsExpander(baseCommand, argKeys, argValues)
+	if err != nil {
+		return nil, err
+	}
+
 	return cmd.RunCommand(c)
 }
