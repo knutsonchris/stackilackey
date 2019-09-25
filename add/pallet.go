@@ -62,6 +62,7 @@ func (pallet *pallet) Pallet(palletName, dir, password, updatedb, username strin
 	argKeys := []string{"clean", "dir", "password", "updatedb", "username"}
 	argValues := []interface{}{cleanstr, dir, password, updatedb, username}
 	baseCommand := fmt.Sprintf("add pallet %s", palletName)
+
 	c, err := cmd.ArgsExpander(baseCommand, argKeys, argValues)
 	if err != nil {
 		return nil, err
@@ -106,7 +107,15 @@ Parameters
 	Version of the pallet
 */
 func (pallet *pallet) Tag(palletName, tag, value, arch, os, release, version string) ([]byte, error) {
-	args := []interface{}{palletName, tag, value, arch, os, release, version}
-	c := fmt.Sprintf("add pallet tag %s tag='%s' value='%s' arch='%s' os='%s' release='%s' version='%s'", args...)
+
+	argKeys := []string{"tag", "value", "arch", "os", "release", "version"}
+	argValues := []interface{}{tag, value, arch, os, release, version}
+	baseCommand := fmt.Sprintf("add pallet tag %s", palletName)
+
+	c, err := cmd.ArgsExpander(baseCommand, argKeys, argValues)
+	if err != nil {
+		return nil, err
+	}
+
 	return cmd.RunCommand(c)
 }

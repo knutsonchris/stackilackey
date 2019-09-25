@@ -10,7 +10,7 @@ all: test clean
 start-test-servers:
 	docker run -d --rm -p 8080:80 --mount source=develop,target=/root -P --privileged stacki/frontend-centos:05.03.00.00 > dockerImageName
 	@echo "wait for the stacki frontend to come up"
-	sleep 70
+	sleep 90
 
 stop-test-servers:
 	docker stop $$(cat dockerImageName)
