@@ -143,12 +143,14 @@ func RunCommand(command string) ([]byte, error) {
 	APICall.AddCookie(&connection.SessionID)
 	APICall.Header.Add("X-CSRFToken", connection.Csrftoken.Value)
 	APICall.Header.Add("Content-Type", "application/json")
+	APICall.Header.Add("Connection", "close")
 
 	// make the request
 	APICallResponse, err := http.DefaultClient.Do(APICall)
 	if err != nil {
 		return nil, err
 	}
+	defer APICallResponse.Body.Close()
 
 	// get the json response out of the body
 	body, err := ioutil.ReadAll(APICallResponse.Body)
