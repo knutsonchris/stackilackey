@@ -102,6 +102,12 @@ func TestEnvironment_Attr(t *testing.T) {
 			t.Fatal("remove environment attr failed. did not expect to find test attr after remove")
 		}
 	}
+
+	// to clean up after ourselves, remove the test environment also
+	_, err = e.Environment("testremoveenvironmentattr")
+	if err != nil {
+		t.Fatal("remove environment attr failed. unable to remove the test environment after attr removal")
+	}
 }
 
 func TestEnvironment_Firewall(t *testing.T) {
@@ -163,8 +169,14 @@ func TestEnvironment_Firewall(t *testing.T) {
 	}
 	for _, firewall := range firewalls {
 		if cmp.Equal(firewall, expected) {
-			t.Fatal("remove environment attr check failed. did not expected to find supposedly removed firewall rule")
+			t.Fatal("remove environment firewall check failed. did not expected to find supposedly removed firewall rule")
 		}
+	}
+
+	// to clean up after ourselves, remove the test environment too
+	_, err = e.Environment("testremoveenvironmentfirewall")
+	if err != nil {
+		t.Fatal("remove environment firewall check failed. unable to remove the test environment after firewall removal")
 	}
 }
 
@@ -216,8 +228,14 @@ func TestEnvironment_Route(t *testing.T) {
 	}
 	for _, route := range routes {
 		if cmp.Equal(route, expected) {
-			t.Fatal("remove environment route failed. did not expect to find test route after add")
+			t.Fatal("remove environment route failed. did not expect to find test route after remove")
 		}
+	}
+
+	// to clean up after ourselves, we need to remove the test environment also
+	_, err = e.Environment("testremoveenvironmentroute")
+	if err != nil {
+		t.Fatal("remove environment route failed. unable to remove test environment after route removal")
 	}
 }
 
@@ -273,5 +291,11 @@ func TestEnvironment_StorageController(t *testing.T) {
 		if cmp.Equal(controller, expected) {
 			t.Fatal("remove environment storage controller failed. did not expect to find test controller after remove")
 		}
+	}
+
+	// to clean up after ourselves, remove the test environment also
+	_, err = e.Environment("testremoveenvcontroller")
+	if err != nil {
+		t.Fatal("remove environment storage controller failed. unable to remove test environment after storage controller removal")
 	}
 }

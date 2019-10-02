@@ -24,7 +24,7 @@ func TestHost_Host(t *testing.T) {
 		Rack:          "1",
 		Rank:          "2",
 		Appliance:     "backend",
-		OS:            "redhat", // TODO: make this test more sophisticated, include multiple OSes
+		OS:            "sles", // TODO: make this test more sophisticated, include multiple OSes
 		Box:           "default",
 		OSAction:      "default",
 		InstallAction: "default",
@@ -108,6 +108,12 @@ func TestHost_Attr(t *testing.T) {
 			t.Fatal("remove host attr check failed. did not expect to find test attr after remove")
 		}
 	}
+
+	// to clean up after ourselves, remove the test host
+	_, err = h.Host("testremovehostattrhost")
+	if err != nil {
+		t.Fatal("remove host attr check failed. unable to remove test host after attr removal")
+	}
 }
 
 func TestHost_Firewall(t *testing.T) {
@@ -169,6 +175,12 @@ func TestHost_Firewall(t *testing.T) {
 			t.Fatal("remove host firewall check failed. did not expect to find test firewall after remove")
 		}
 	}
+
+	// to clean up after ourselves, remove the test host
+	_, err = h.Host("testremovehostfirewallhost")
+	if err != nil {
+		t.Fatal("remove host firewall check failed. unable to remove test host after firewall removal")
+	}
 }
 
 func TestHost_Route(t *testing.T) {
@@ -215,6 +227,12 @@ func TestHost_Route(t *testing.T) {
 		if route.Network == "192.168.0.1" {
 			t.Fatalf("remove host route check. did not expect to find test route after remove")
 		}
+	}
+
+	// to clean up after ourselves, remove the test host
+	_, err = h.Host("testremovehostroutehost")
+	if err != nil {
+		t.Fatalf("remove host route check. unable to remove test host after route removal")
 	}
 }
 
@@ -267,7 +285,13 @@ func TestHost_StorageController(t *testing.T) {
 	}
 	for _, controller := range controllers {
 		if cmp.Equal(controller, expected) {
-			t.Fatal("remove  host storage controller check failed. did not expect to find test controller after remove")
+			t.Fatal("remove host storage controller check failed. did not expect to find test controller after remove")
 		}
+	}
+
+	// to clean up after ourselves, remove the test host
+	_, err = h.Host("testhostremovestoragecontroller")
+	if err != nil {
+		t.Fatal("remove host storage controller check failed. unable to remove test host after storage controller removal")
 	}
 }
