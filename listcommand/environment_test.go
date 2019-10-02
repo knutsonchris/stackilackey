@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.td.teradata.com/ck250037/stackilackey/add"
+	"github.td.teradata.com/ck250037/stackilackey/remove"
 )
 
 func TestEnvironment_Environment(t *testing.T) {
@@ -18,11 +19,24 @@ func TestEnvironment_Environment(t *testing.T) {
 	if err != nil {
 		t.Fatalf("list environment failed with error %s", err)
 	}
+	found := false
 	for _, environment := range environments {
 		if environment.EnvironmentName == "testEnvironment" {
-			// TODO: need to tear this test down with remove environment
-			return
+			found = true
 		}
 	}
-	t.Errorf("list environment failed. attempted to list testEnvironment but testEnvironment was not found")
+	if !found {
+		t.Fatalf("list environment failed. attempted to list testEnvironment but testEnvironment was not found")
+
+	}
+
+	// to clean up after ourselves, remove the test environment
+
+	remove := remove.Remove{}
+	removeEnv := remove.Environment
+
+	_, err = removeEnv.Environment("testEnvironment")
+	if err != nil {
+		t.Fatalf("list environment tear down failed. Unable to remove test environment %s", err)
+	}
 }

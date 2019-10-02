@@ -8,6 +8,9 @@ import (
 	"github.td.teradata.com/ck250037/stackilackey/listcommand"
 )
 
+// TODO: come up with a way to test this
+// TODO: currently cannot re-add a removed os so we cannot test without leaving a trace
+/*
 func TestOS_OS(t *testing.T) {
 	// we have no add OS command to add a dummy OS, so we'll just remove ubuntu
 	// make sure it is there first
@@ -44,6 +47,7 @@ func TestOS_OS(t *testing.T) {
 		}
 	}
 }
+*/
 
 func TestOS_Attr(t *testing.T) {
 	// before we test the removal of an OS attr we need to add one

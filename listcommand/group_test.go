@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.td.teradata.com/ck250037/stackilackey/add"
+	"github.td.teradata.com/ck250037/stackilackey/remove"
 )
 
 func TestGroup_Group(t *testing.T) {
@@ -18,10 +19,22 @@ func TestGroup_Group(t *testing.T) {
 	if err != nil {
 		t.Fatalf("list group failed with error %s", err)
 	}
+	found := false
 	for _, group := range groups {
 		if group.GroupName == "testGroup" {
-			return
+			found = true
 		}
 	}
-	t.Errorf("list group failed. unable to find  expected group testGroup")
+	if !found {
+		t.Fatal("list group failed. unable to find  expected group testGroup")
+	}
+
+	// to clean up after ourselves, remove the test group
+	remove := remove.Remove{}
+	removeGroup := remove.Group
+
+	_, err = removeGroup.Group("testGroup")
+	if err != nil {
+		t.Errorf("list group failed. unable to remove test group after list test")
+	}
 }
