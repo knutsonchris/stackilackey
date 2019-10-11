@@ -16,4 +16,5 @@ type Remove struct {
 	Pallet            pallet      `json:"pallet"`
 	Route             route       `json:"route"`
 	StorageController controller  `json:"controller"`
+	StoragePartition  partition   `json:"partition"`
 }

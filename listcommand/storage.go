@@ -2,6 +2,7 @@ package listcommand
 
 import (
 	"encoding/json"
+	"fmt"
 	"strconv"
 
 	"github.td.teradata.com/ck250037/stackilackey/cmd"
@@ -20,11 +21,11 @@ type Controller struct {
 	Options   string     `json:"options"`
 }
 
-// Array represents a storage array in the Stacki database
-type Array struct {
+// Partition represents a storage array in the Stacki database
+type Partition struct {
 	Scope      string `json:"scope"`
 	Device     string `json:"device"`
-	PardID     int    `json:"partid"`
+	PartID     int    `json:"partid"`
 	Mountpoint string `json:"mountpoint"`
 	Size       int    `json:"size"`
 	FStype     string `json:"fstype"`
@@ -51,6 +52,29 @@ func (controller *Controller) Controller() ([]Controller, error) {
 		return controllers, err
 	}
 	return controllers, err
+}
+
+// Partition will list storage partition information, with an optional scope host, os, or appliance name
+// leave scope blank for global scope
+func (partition *Partition) Partition(scope string) ([]Partition, error) {
+	c := fmt.Sprintf("list storage partition %s", scope)
+	b, err := cmd.RunCommand(c)
+	if err != nil {
+		return nil, err
+	}
+	partitions := []Partition{}
+	err = json.Unmarshal(b, &partitions)
+	if err != nil {
+		// it may have been just an empty output from the Frontend
+		nullOutput := NullOutput{}
+		err2 := json.Unmarshal(b, &nullOutput)
+		if err2 != nil {
+			// if we still can't recognize the output, return an error
+			return nil, err
+		}
+		return partitions, err
+	}
+	return partitions, err
 }
 
 // UnmarshalJSON is a FlexString reciever, to call out the Stacki API on its lies

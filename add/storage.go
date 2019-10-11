@@ -95,7 +95,15 @@ Parameters
 	Type of partition E.g: ext4, ext3, xfs, raid, etc.
 */
 func (storage *storage) Partition(scope, device, options, mountpoint, typeName string, size, partID int) ([]byte, error) {
-	args := []interface{}{scope, device, options, size, mountpoint, partID, typeName}
-	c := fmt.Sprintf("add storage partition %s device='%s' options='%s' size='%d' mountpoint='%s', partid='%d' type='%s'", args...)
+
+	argKeys := []string{"device", "options", "size", "mountpoint", "partid", "type"}
+	argValues := []interface{}{device, options, size, mountpoint, partID, typeName}
+	baseCommand := fmt.Sprintf("add storage partition %s", scope)
+
+	c, err := cmd.ArgsExpander(baseCommand, argKeys, argValues)
+	if err != nil {
+		return nil, err
+	}
+
 	return cmd.RunCommand(c)
 }
