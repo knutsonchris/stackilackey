@@ -3,7 +3,7 @@ package listcommand
 import (
 	"encoding/json"
 
-	"github.td.teradata.com/ck250037/stackilackey/cmd"
+	"github.com/knutsonchris/stackilackey/cmd"
 )
 
 // Bootaction represents a PXE OOS install target

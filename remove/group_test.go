@@ -3,8 +3,8 @@ package remove
 import (
 	"testing"
 
-	"github.td.teradata.com/ck250037/stackilackey/add"
-	"github.td.teradata.com/ck250037/stackilackey/listcommand"
+	"github.com/knutsonchris/stackilackey/add"
+	"github.com/knutsonchris/stackilackey/listcommand"
 )
 
 func TestGroup_Group(t *testing.T) {

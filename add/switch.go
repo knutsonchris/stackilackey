@@ -3,7 +3,7 @@ package add
 import (
 	"fmt"
 
-	"github.td.teradata.com/ck250037/stackilackey/cmd"
+	"github.com/knutsonchris/stackilackey/cmd"
 )
 
 type netswitch struct {

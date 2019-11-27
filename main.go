@@ -1,10 +1,10 @@
 package stackilackey
 
 import (
-	"github.td.teradata.com/ck250037/stackilackey/add"
-	"github.td.teradata.com/ck250037/stackilackey/listcommand"
-	"github.td.teradata.com/ck250037/stackilackey/remove"
-	"github.td.teradata.com/ck250037/stackilackey/set"
+	"github.com/knutsonchris/stackilackey/add"
+	"github.com/knutsonchris/stackilackey/listcommand"
+	"github.com/knutsonchris/stackilackey/remove"
+	"github.com/knutsonchris/stackilackey/set"
 )
 
 // StackCommand exposes stacki functionality

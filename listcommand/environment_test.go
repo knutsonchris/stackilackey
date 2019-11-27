@@ -3,8 +3,8 @@ package listcommand
 import (
 	"testing"
 
-	"github.td.teradata.com/ck250037/stackilackey/add"
-	"github.td.teradata.com/ck250037/stackilackey/remove"
+	"github.com/knutsonchris/stackilackey/add"
+	"github.com/knutsonchris/stackilackey/remove"
 )
 
 func TestEnvironment_Environment(t *testing.T) {

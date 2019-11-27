@@ -6,7 +6,7 @@ Programagically interact with a Stacki Frontend using Go.
 
 ### Install
 
-`go get github.td.teradata.com/ck250037/stacki-lackey`
+`go get github.com/knutsonchris/stacki-lackey`
 
 
 
@@ -26,7 +26,7 @@ To communicate with the Frontend, the lackey needs the following environment var
 
 Import 
 
-`stackilackey "github.td.teradata.com/ck250037/stacki-lackey"`
+`stackilackey "github.com/knutsonchris/stacki-lackey"`
 
 Create a `StackCommand` struct
 

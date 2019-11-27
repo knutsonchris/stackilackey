@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.td.teradata.com/ck250037/stackilackey/cmd"
+	"github.com/knutsonchris/stackilackey/cmd"
 )
 
 // FlexString exists because the Stacki API will occasionally give us an int

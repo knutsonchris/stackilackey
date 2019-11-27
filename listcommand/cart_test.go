@@ -3,7 +3,7 @@ package listcommand
 import (
 	"testing"
 
-	"github.td.teradata.com/ck250037/stackilackey/add"
+	"github.com/knutsonchris/stackilackey/add"
 )
 
 func TestCart_Cart(t *testing.T) {

@@ -3,7 +3,7 @@ package set
 import (
 	"fmt"
 
-	"github.td.teradata.com/ck250037/stackilackey/cmd"
+	"github.com/knutsonchris/stackilackey/cmd"
 )
 
 type api struct {

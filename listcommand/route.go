@@ -3,7 +3,7 @@ package listcommand
 import (
 	"encoding/json"
 
-	"github.td.teradata.com/ck250037/stackilackey/cmd"
+	"github.com/knutsonchris/stackilackey/cmd"
 )
 
 // Route represents a route stored in the stacki database

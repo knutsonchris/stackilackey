@@ -1,7 +1,7 @@
 package add
 
 import (
-	"github.td.teradata.com/ck250037/stackilackey/cmd"
+	"github.com/knutsonchris/stackilackey/cmd"
 )
 
 type attr struct {

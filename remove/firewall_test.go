@@ -4,8 +4,8 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	"github.td.teradata.com/ck250037/stackilackey/add"
-	"github.td.teradata.com/ck250037/stackilackey/listcommand"
+	"github.com/knutsonchris/stackilackey/add"
+	"github.com/knutsonchris/stackilackey/listcommand"
 )
 
 func TestFirewall_Firewall(t *testing.T) {
